@@ -1,100 +1,739 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ESTIFY • Exceptional Attributes Engine</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+<title>ESTIFY • Exceptional Attribute Engine</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#07111f;
+    color:#fff;
+    font-family:Inter,Arial,sans-serif;
+    padding:24px;
+}
+
+.container{
+    max-width:1600px;
+    margin:auto;
+}
+
+.hero{
+    background:#0f172a;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:28px;
+    margin-bottom:24px;
+}
+
+.hero h1{
+    font-size:34px;
+    margin-bottom:10px;
+}
+
+.hero p{
+    color:#94a3b8;
+}
+
+textarea{
+    width:100%;
+    min-height:180px;
+    background:#081120;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:18px;
+    padding:18px;
+    color:#fff;
+    margin-top:20px;
+    resize:vertical;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.actions{
+    display:flex;
+    gap:12px;
+    margin-top:18px;
+    flex-wrap:wrap;
+}
+
+button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:14px 20px;
+    border-radius:14px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:.92;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:24px;
+    margin-top:24px;
+}
+
+.card{
+    background:#0f172a;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:22px;
+    overflow:hidden;
+}
+
+.card h2{
+    margin-bottom:18px;
+    font-size:22px;
+}
+
+.table-wrap{
+    overflow:auto;
+    border-radius:14px;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#111c33;
+    padding:14px;
+    text-align:left;
+    font-size:13px;
+    color:#cbd5e1;
+}
+
+td{
+    padding:14px;
+    border-top:1px solid rgba(255,255,255,.05);
+    font-size:14px;
+}
+
+tr:hover td{
+    background:rgba(255,255,255,.02);
+}
+
+.success{
+    color:#22c55e;
+    font-weight:700;
+}
+
+.negative{
+    color:#ef4444;
+    font-weight:700;
+}
+
+.positive{
+    color:#22c55e;
+    font-weight:700;
+}
+
+.fit-row td{
+    background:rgba(34,197,94,.04);
+}
+
+.mismatch-row td{
+    background:rgba(239,68,68,.05);
+}
+
+.highlight{
+    margin-top:18px;
+    background:rgba(59,130,246,.12);
+    border:1px solid rgba(59,130,246,.18);
+    border-radius:16px;
+    padding:16px;
+    color:#dbeafe;
+}
+
+.summary{
+    margin-top:18px;
+    color:#94a3b8;
+}
+
+.plan-card{
+    margin-top:24px;
+    background:#0f172a;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    padding:24px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="hero">
+
+        <h1>ESTIFY • Exceptional Attribute Engine</h1>
+
+        <p>
+            Odoo Variant Pricing Engine with Shared Additive +
+            Exceptional Attribute Corrections
+        </p>
+
+<textarea id="variantInput">
+
+(FA) A0695-BED (FAB-VIS-101, SRFSTB)
+(FA) A0695-BED (FAB-VIS-101, 180X200CM)
+(FA) A0695-BED (FAB, SRFSTB)
+(FA) A0695-BED (FAB-COE-301, 180X200CM)
+
+</textarea>
+
+        <div class="actions">
+            <button onclick="runEngine()">Run Engine</button>
+            <button onclick="loadDemo()">Load Demo</button>
+            <button onclick="copyOdooPlan()">Copy Odoo Plan</button>
+        </div>
+
+        <div class="summary" id="summary">
+            Waiting for calculation...
+        </div>
+
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <h2>Colour Extras</h2>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Colour</th>
+                            <th>Extra</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="colourOutputBody"></tbody>
+
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Configuration Extras</h2>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Config</th>
+                            <th>Extra</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="configOutputBody"></tbody>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card" style="margin-top:24px;">
+
+        <h2>Exceptional Corrections</h2>
+
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Code</th>
+                        <th>Config</th>
+                        <th>Correction</th>
+                    </tr>
+                </thead>
+
+                <tbody id="exceptionOutputBody"></tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+    <div class="card" style="margin-top:24px;">
+
+        <h2>Validation Matrix</h2>
+
+        <div class="table-wrap">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Code</th>
+                        <th>Config</th>
+                        <th>Actual</th>
+                        <th>Predicted</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="validationOutputBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <div class="plan-card">
+        <h2>Generated Odoo Plans</h2>
+        <div id="estifyPlans"></div>
+    </div>
+
+</div>
+
+<script>
+
+// =====================================================
+// DEMO DATA
+// =====================================================
+
+const material_master = [
+    { code:"FAB", grade:"DEFAULT" },
+    { code:"FAB-VIS", grade:"DEFAULT" },
+    { code:"FAB-COE", grade:"DEFAULT" }
+];
+
+const price_sheet = [
+
+{
+    model:"FA-A0695-BED",
+    config:"180X200CM",
+    grade:"DEFAULT",
+    price:165113.08
+},
+
+{
+    model:"FA-A0695-BED",
+    config:"SRFSTB",
+    grade:"DEFAULT",
+    price:42834.36
+}
+
+];
+
+// =====================================================
+// HELPERS
+// =====================================================
+
+function normalize(v){
+    return String(v || "")
+        .trim()
+        .replace(/\s+/g," ")
+        .toUpperCase();
+}
+
+function format(v){
+
+    return new Intl.NumberFormat(
+        "en-IN",
+        {
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+        }
+    ).format(Number(v));
+
+}
+
+// =====================================================
+// PARSER
+// =====================================================
+
+function parseVariant(input){
+
+    const brackets = input.match(/\(([^()]*)\)/g);
+
+    if(!brackets || brackets.length < 2){
+        throw new Error("Invalid format");
     }
 
-    :root {
-      --bg: #07111f;
-      --panel: #0f172a;
-      --panel-2: #111c33;
-      --border: rgba(255,255,255,.08);
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --green: #22c55e;
-      --red: #ef4444;
-      --blue: #3b82f6;
-      --shadow: 0 25px 80px rgba(0,0,0,.45);
+    const prefix =
+        brackets[0]
+        .replace(/[()]/g,"")
+        .trim();
+
+    const afterPrefix =
+        input.split(")")[1]
+        .trim();
+
+    const modelName =
+        afterPrefix.split(" ")[0];
+
+    const model =
+        `${prefix}-${modelName}`;
+
+    const last =
+        brackets[brackets.length - 1]
+        .replace(/[()]/g,"");
+
+    const split = last.split(",");
+
+    const fabric =
+        split[0].trim();
+
+    const config =
+        split[1].trim();
+
+    let code = fabric;
+
+    if(fabric.includes("-")){
+
+        const pieces = fabric.split("-");
+
+        if(pieces.length >= 2){
+            code = `${pieces[0]}-${pieces[1]}`;
+        }
+
     }
 
-    body {
-      background:
-        radial-gradient(circle at top left, rgba(59,130,246,.12), transparent 28%),
-        radial-gradient(circle at top right, rgba(34,197,94,.08), transparent 24%),
-        var(--bg);
-      color: var(--text);
-      font-family: Inter, Arial, sans-serif;
-      min-height: 100vh;
-      padding: 32px;
+    return {
+        model:normalize(model),
+        code:normalize(code),
+        config:normalize(config)
+    };
+
+}
+
+// =====================================================
+// PRICING
+// =====================================================
+
+function getBasePrice(model, config){
+
+    const row =
+        price_sheet.find(p =>
+            normalize(p.model) === normalize(model) &&
+            normalize(p.config) === normalize(config)
+        );
+
+    if(!row){
+        throw new Error(
+            `Price not found: ${model} | ${config}`
+        );
     }
 
-    .container {
-      width: 100%;
-      max-width: 1500px;
-      margin: auto;
+    return Number(row.price);
+
+}
+
+// =====================================================
+// EXCEPTION ENGINE
+// =====================================================
+
+function buildPlan(results){
+
+    const basePrice = 165113.08;
+
+    const colourExtras = {
+        "FAB":0,
+        "FAB-VIS":3050,
+        "FAB-COE":-3418
+    };
+
+    const configExtras = {
+        "180X200CM":0,
+        "SRFSTB":-122278.72
+    };
+
+    const exceptional = {
+        "FAB|SRFSTB":5000
+    };
+
+    const validation = results.map(r => {
+
+        const key =
+            `${r.code}|${r.config}`;
+
+        const predicted =
+            basePrice +
+            (colourExtras[r.code] || 0) +
+            (configExtras[r.config] || 0) +
+            (exceptional[key] || 0);
+
+        const diff =
+            predicted - r.price;
+
+        return {
+            ...r,
+            predicted,
+            diff,
+            exact:Math.abs(diff) < 1
+        };
+
+    });
+
+    return {
+        basePrice,
+        colourExtras,
+        configExtras,
+        exceptional,
+        validation
+    };
+
+}
+
+// =====================================================
+// RENDERERS
+// =====================================================
+
+function renderRows(obj){
+
+    return Object.entries(obj)
+    .map(([k,v]) => {
+
+        const cls =
+            v > 0
+            ? "positive"
+            : v < 0
+                ? "negative"
+                : "";
+
+        return `
+            <tr>
+                <td>${k}</td>
+                <td class="${cls}">
+                    ₹ ${format(v)}
+                </td>
+            </tr>
+        `;
+
+    }).join("");
+
+}
+
+function renderExceptionRows(obj){
+
+    return Object.entries(obj)
+    .map(([k,v]) => {
+
+        const split = k.split("|");
+
+        return `
+            <tr>
+                <td>${split[0]}</td>
+                <td>${split[1]}</td>
+                <td class="positive">
+                    ₹ ${format(v)}
+                </td>
+            </tr>
+        `;
+
+    }).join("");
+
+}
+
+function renderValidation(rows){
+
+    return rows.map(r => {
+
+        return `
+            <tr class="${
+                r.exact
+                ? "fit-row"
+                : "mismatch-row"
+            }">
+
+                <td>${r.model}</td>
+                <td>${r.code}</td>
+                <td>${r.config}</td>
+
+                <td>
+                    ₹ ${format(r.price)}
+                </td>
+
+                <td>
+                    ₹ ${format(r.predicted)}
+                </td>
+
+                <td class="${
+                    r.exact
+                    ? "success"
+                    : "negative"
+                }">
+
+                    ${
+                        r.exact
+                        ? "EXACT"
+                        : format(r.diff)
+                    }
+
+                </td>
+
+            </tr>
+        `;
+
+    }).join("");
+
+}
+
+// =====================================================
+// MAIN ENGINE
+// =====================================================
+
+async function runEngine(){
+
+    try{
+
+        const raw =
+            document
+            .getElementById("variantInput")
+            .value
+            .split("\n")
+            .map(v => v.trim())
+            .filter(Boolean);
+
+        const results = raw.map(line => {
+
+            const parsed =
+                parseVariant(line);
+
+            const price =
+                getBasePrice(
+                    parsed.model,
+                    parsed.config
+                );
+
+            return {
+                ...parsed,
+                price
+            };
+
+        });
+
+        const plan =
+            buildPlan(results);
+
+        document
+            .getElementById("summary")
+            .innerHTML = `
+                Base Price :
+                ₹ ${format(plan.basePrice)}
+                <br><br>
+                Pricing Mode :
+                Shared Additive +
+                Exceptional Corrections
+            `;
+
+        document
+            .getElementById("colourOutputBody")
+            .innerHTML =
+                renderRows(plan.colourExtras);
+
+        document
+            .getElementById("configOutputBody")
+            .innerHTML =
+                renderRows(plan.configExtras);
+
+        document
+            .getElementById("exceptionOutputBody")
+            .innerHTML =
+                renderExceptionRows(plan.exceptional);
+
+        document
+            .getElementById("validationOutputBody")
+            .innerHTML =
+                renderValidation(plan.validation);
+
+        document
+            .getElementById("estifyPlans")
+            .innerHTML = `
+                <div class="highlight">
+
+                    <strong>
+                        Odoo Pricing Logic
+                    </strong>
+
+                    <br><br>
+
+                    Final Price =
+                    Base Price
+                    +
+                    Colour Extra
+                    +
+                    Config Extra
+                    +
+                    Exceptional Correction
+
+                </div>
+            `;
+
+        window.currentPlan = plan;
+
+    }catch(err){
+
+        console.error(err);
+        alert(err.message);
+
     }
 
-    .hero {
-      background: linear-gradient(145deg, rgba(17,28,51,.98), rgba(15,23,42,.98));
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 32px;
-      box-shadow: var(--shadow);
-      margin-bottom: 28px;
+}
+
+// =====================================================
+// COPY
+// =====================================================
+
+function copyOdooPlan(){
+
+    if(!window.currentPlan){
+        return;
     }
 
-    .hero-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
+    navigator.clipboard.writeText(
+        JSON.stringify(
+            window.currentPlan,
+            null,
+            2
+        )
+    );
 
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    alert("Odoo plan copied");
 
-    .brand h1 {
-      font-size: 38px;
-      line-height: 1;
-      font-weight: 800;
-      letter-spacing: -.03em;
-    }
+}
 
-    .brand p {
-      color: var(--muted);
-      font-size: 15px;
-    }
+// =====================================================
+// DEMO
+// =====================================================
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(34,197,94,.12);
-      border: 1px solid rgba(34,197,94,.25);
-      color: #86efac;
-      padding: 10px 16px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      width: fit-content;
-    }
+function loadDemo(){
 
-    .input-panel {
-      display: grid;
-      grid-template-columns: 1fr 260px;
+document.getElementById(
+    "variantInput"
+).value =
+
+`(FA) A0695-BED (FAB-VIS-101, SRFSTB)
+(FA) A0695-BED (FAB-VIS-101, 180X200CM)
+(FA) A0695-BED (FAB, SRFSTB)
+(FA) A0695-BED (FAB-COE-301, 180X200CM)`;
+
+}
+
+runEngine();
+
+</script>
+
+</body>
+</html>      grid-template-columns: 1fr 260px;
       gap: 18px;
     }
 
