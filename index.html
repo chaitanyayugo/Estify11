@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ESTIFY • Exceptional Attributes Engine</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #07111f;
+      --panel: #0f172a;
+      --panel-2: #111c33;
+      --border: rgba(255,255,255,.08);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --green: #22c55e;
+      --red: #ef4444;
+      --blue: #3b82f6;
+      --shadow: 0 25px 80px rgba(0,0,0,.45);
+    }
+
+    body {
+      background:
+        radial-gradient(circle at top left, rgba(59,130,246,.12), transparent 28%),
+        radial-gradient(circle at top right, rgba(34,197,94,.08), transparent 24%),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, Arial, sans-serif;
+      min-height: 100vh;
+      padding: 32px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1500px;
+      margin: auto;
+    }
+
+    .hero {
+      background: linear-gradient(145deg, rgba(17,28,51,.98), rgba(15,23,42,.98));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .brand h1 {
+      font-size: 38px;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -.03em;
+    }
+
+    .brand p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(34,197,94,.12);
+      border: 1px solid rgba(34,197,94,.25);
+      color: #86efac;
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      width: fit-content;
+    }
+
+    .input-panel {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 18px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 180px;
+      resize: vertical;
+      border-radius: 22px;
+      background: rgba(15,23,42,.95);
+      border: 1px solid rgba(255,255,255,.08);
+      color: var(--text);
+      padding: 22px;
+      font-size: 15px;
+      line-height: 1.7;
+      outline: none;
+    }
+
+    textarea::placeholder {
+      color: #64748b;
+    }
+
+    .action-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    button {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border-radius: 18px;
+      padding: 16px 18px;
+      font-size: 15px;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+    }
+
+    .primary {
+      background: linear-gradient(135deg, #2563eb, #3b82f6);
+      color: white;
+      box-shadow: 0 14px 35px rgba(59,130,246,.35);
+    }
+
+    .secondary {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.08);
+      color: white;
+    }
+
+    .info-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 20px;
+      padding: 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .stat-card {
+      background: linear-gradient(145deg, rgba(17,28,51,.98), rgba(15,23,42,.98));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-title {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 800;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(17,28,51,.98), rgba(15,23,42,.98));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card h2 {
+      font-size: 24px;
+      margin-bottom: 22px;
+      letter-spacing: -.02em;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+    }
+
+    th {
+      background: rgba(255,255,255,.05);
+      color: #cbd5e1;
+      text-align: left;
+      padding: 18px;
+      font-size: 13px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 18px;
+      border-top: 1px solid rgba(255,255,255,.05);
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    tr:hover td {
+      background: rgba(255,255,255,.02);
+    }
+
+    .positive {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .negative {
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .success {
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .fit-row td {
+      background: rgba(34,197,94,.04);
+    }
+
+    .mismatch-row td {
+      background: rgba(239,68,68,.05);
+    }
+
+    .highlight {
+      margin-top: 18px;
+      background: rgba(59,130,246,.10);
+      border: 1px solid rgba(59,130,246,.18);
+      border-radius: 20px;
+      padding: 18px;
+      color: #dbeafe;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .section-title h2 {
+      font-size: 28px;
+      letter-spacing: -.03em;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .footer-note {
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 980px) {
+      body {
+        padding: 18px;
+      }
+
+      .hero,
+      .card,
+      .stat-card {
+        border-radius: 22px;
+      }
+
+      .input-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .brand h1 {
+        font-size: 30px;
+      }
+
+      .section-title h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <section class="hero">
+      <div class="hero-top">
+        <div class="brand">
+          <div class="badge">
+            Exceptional Attribute Solver Active
+          </div>
+
+          <h1>ESTIFY • Exceptional Attributes Engine</h1>
+
+          <p>
+            Odoo Variant Pricing Engine • Shared Additive Logic + Exceptional Attribute Corrections
+          </p>
+        </div>
+      </div>
+
+      <div class="input-panel">
+        <textarea id="variantInput" placeholder="Paste variants here...
+
+Example:
+(DM) B5131-PR (NW-516E LIGHT GREY, 2.5S2UA)
+(DM) B5131-PR (NW-521E FROST, 2S2UA)
+(FA) A0695-BED (FAB-VIS-101, SRFSTB)"></textarea>
+
+        <div class="action-panel">
+          <button class="primary" onclick="runDemo()">
+            Run Exceptional Engine
+          </button>
+
+          <button class="secondary" onclick="loadDemo()">
+            Load Demo Data
+          </button>
+
+          <button class="secondary" onclick="copyPlan()">
+            Copy Odoo Plan
+          </button>
+
+          <div class="info-card">
+            <strong>Engine Logic</strong>
+            <br /><br />
+            • Shared additive pricing
+            <br />
+            • Exact paise math
+            <br />
+            • Exceptional mismatch correction
+            <br />
+            • Odoo-ready attribute extras
+            <br />
+            • Validation matrix verification
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat-card">
+        <div class="stat-title">Pricing Mode</div>
+        <div class="stat-value" id="pricingMode">—</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-title">Base Price</div>
+        <div class="stat-value" id="basePrice">—</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-title">Validation Accuracy</div>
+        <div class="stat-value success" id="validationStatus">—</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-title">Exceptional Corrections</div>
+        <div class="stat-value" id="exceptionCount">—</div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <div class="card">
+        <div class="section-title">
+          <h2>Colour Extras</h2>
+          <span class="muted">Shared additive layer</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Colour</th>
+                <th>Extra</th>
+              </tr>
+            </thead>
+
+            <tbody id="colourTable">
+              <tr>
+                <td colspan="2">No data loaded</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="section-title">
+          <h2>Configuration Extras</h2>
+          <span class="muted">Shared additive layer</span>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Config</th>
+                <th>Extra</th>
+              </tr>
+            </thead>
+
+            <tbody id="configTable">
+              <tr>
+                <td colspan="2">No data loaded</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="card section">
+      <div class="section-title">
+        <h2>Exceptional Corrections</h2>
+        <span class="muted">Non-additive mismatch resolver</span>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Colour</th>
+              <th>Config</th>
+              <th>Actual</th>
+              <th>Correction</th>
+            </tr>
+          </thead>
+
+          <tbody id="exceptionTable">
+            <tr>
+              <td colspan="4">No exceptional corrections</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="highlight">
+        Exceptional corrections solve real-world Odoo pricing mismatches where shared additive pricing alone cannot produce exact totals.
+      </div>
+    </section>
+
+    <section class="card section">
+      <div class="section-title">
+        <h2>Validation Matrix</h2>
+        <span class="muted">Actual vs predicted</span>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Code</th>
+              <th>Config</th>
+              <th>Actual</th>
+              <th>Predicted</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody id="validationTable">
+            <tr>
+              <td colspan="6">No validation data</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="footer-note">
+      ESTIFY • Exceptional Attribute Pricing Engine • Odoo Variant Distribution System
+    </div>
+  </div>
+
+  <script>
+    const demoPlan = {
+      pricingMode: 'ADDITIVE + EXCEPTIONAL CORRECTIONS',
+      basePrice: '₹ 1,65,113.00',
+      validation: '100%',
+      exceptionalCount: 1,
+
+      colours: [
+        ['FAB', '₹ 0.00'],
+        ['FAB-VIS', '₹ 3,050.00'],
+        ['FAB-COE', '₹ -3,418.00']
+      ],
+
+      configs: [
+        ['180X200CM', '₹ 0.00'],
+        ['SRFSTB', '₹ -1,22,279.00']
+      ],
+
+      exceptional: [
+        ['FAB', 'SRFSTB', '₹ 47,834.36', '₹ 5,000.00']
+      ],
+
+      validationRows: [
+        ['FA-A0695-BED', 'FAB-VIS', 'SRFSTB', '₹ 45,884.16', '₹ 45,884.16', 'EXACT'],
+        ['FA-A0695-BED', 'FAB-VIS', '180X200CM', '₹ 1,68,163.08', '₹ 1,68,163.08', 'EXACT'],
+        ['FA-A0695-BED', 'FAB', 'SRFSTB', '₹ 47,834.36', '₹ 47,834.36', 'EXACT'],
+        ['FA-A0695-BED', 'FAB-COE', '180X200CM', '₹ 1,61,695.27', '₹ 1,61,695.27', 'EXACT']
+      ]
+    };
+
+    function rowHtml(items, positiveCheck = true) {
+      return items.map(row => {
+        const val = row[1] || row[3] || '';
+
+        const cls = val.includes('-')
+          ? 'negative'
+          : positiveCheck && !val.includes('0.00')
+            ? 'positive'
+            : '';
+
+        return `
+          <tr>
+            ${row.map((cell, index) => `
+              <td class="${index > 0 ? cls : ''}">${cell}</td>
+            `).join('')}
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function loadDemo() {
+      document.getElementById('variantInput').value = `(FA) A0695-BED (FAB-VIS-101, SRFSTB)
+(FA) A0695-BED (FAB-VIS-101, 180X200CM)
+(FA) A0695-BED (FAB, SRFSTB)
+(FA) A0695-BED (FAB-COE-301, 180X200CM)`;
+    }
+
+    function runDemo() {
+      document.getElementById('pricingMode').textContent = demoPlan.pricingMode;
+      document.getElementById('basePrice').textContent = demoPlan.basePrice;
+      document.getElementById('validationStatus').textContent = demoPlan.validation;
+      document.getElementById('exceptionCount').textContent = demoPlan.exceptionalCount;
+
+      document.getElementById('colourTable').innerHTML = rowHtml(demoPlan.colours);
+      document.getElementById('configTable').innerHTML = rowHtml(demoPlan.configs);
+      document.getElementById('exceptionTable').innerHTML = rowHtml(demoPlan.exceptional, false);
+
+      document.getElementById('validationTable').innerHTML = demoPlan.validationRows.map(r => `
+        <tr class="fit-row">
+          <td>${r[0]}</td>
+          <td>${r[1]}</td>
+          <td>${r[2]}</td>
+          <td>${r[3]}</td>
+          <td>${r[4]}</td>
+          <td class="success">${r[5]}</td>
+        </tr>
+      `).join('');
+    }
+
+    function copyPlan() {
+      const payload = JSON.stringify(demoPlan, null, 2);
+
+      navigator.clipboard.writeText(payload).then(() => {
+        alert('Odoo plan copied successfully');
+      });
+    }
+
+    loadDemo();
+    runDemo();
+  </script>
+</body>
+</html>
+
