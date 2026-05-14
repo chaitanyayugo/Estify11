@@ -1,0 +1,590 @@
+[
+  {
+    "code": "FAB-BLT",
+    "grade": "FAB1"
+  },
+  {
+    "code": "BFA-BEY",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-AIS",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-HON",
+    "grade": "FAB4"
+  },
+  {
+    "code": "FAB-QUE",
+    "grade": "FAB5"
+  },
+  {
+    "code": "RFA-BMO",
+    "grade": "FAB6"
+  },
+  {
+    "code": "BV",
+    "grade": "FL1"
+  },
+  {
+    "code": "AN",
+    "grade": "FL2"
+  },
+  {
+    "code": "NC",
+    "grade": "FL3"
+  },
+  {
+    "code": "TO",
+    "grade": "FL4"
+  },
+  {
+    "code": "VO",
+    "grade": "FL5"
+  },
+  {
+    "code": "NP",
+    "grade": "FL6"
+  },
+  {
+    "code": "NN",
+    "grade": "FL7"
+  },
+  {
+    "code": "RD",
+    "grade": "FL8"
+  },
+  {
+    "code": "FAB-FRD",
+    "grade": "FAB1"
+  },
+  {
+    "code": "BFA-BLJ",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-BIE",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-SCL",
+    "grade": "FAB4"
+  },
+  {
+    "code": "SFA-BEM",
+    "grade": "FAB5"
+  },
+  {
+    "code": "NW",
+    "grade": "FL2"
+  },
+  {
+    "code": "CA",
+    "grade": "FL3"
+  },
+  {
+    "code": "NE",
+    "grade": "FL4"
+  },
+  {
+    "code": "OH",
+    "grade": "FL5"
+  },
+  {
+    "code": "SK",
+    "grade": "FL8"
+  },
+  {
+    "code": "FAB-PAC",
+    "grade": "FAB1"
+  },
+  {
+    "code": "BFA-MAD",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-MEG",
+    "grade": "FAB3"
+  },
+  {
+    "code": "BFA-MTS",
+    "grade": "FAB5"
+  },
+  {
+    "code": "BX",
+    "grade": "FL2"
+  },
+  {
+    "code": "CM",
+    "grade": "FL3"
+  },
+  {
+    "code": "BE",
+    "grade": "FL4"
+  },
+  {
+    "code": "TD",
+    "grade": "FL5"
+  },
+  {
+    "code": "PE",
+    "grade": "FL8"
+  },
+  {
+    "code": "FAB-HRO",
+    "grade": "FAB1"
+  },
+  {
+    "code": "FAB-TER",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-SKA",
+    "grade": "FAB3"
+  },
+  {
+    "code": "VS",
+    "grade": "FL2"
+  },
+  {
+    "code": "CG",
+    "grade": "FL4"
+  },
+  {
+    "code": "WD",
+    "grade": "FL5"
+  },
+  {
+    "code": "HW",
+    "grade": "FL8"
+  },
+  {
+    "code": "FAB-NDO",
+    "grade": "FAB1"
+  },
+  {
+    "code": "FAB-SUG",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-BAC",
+    "grade": "FAB3"
+  },
+  {
+    "code": "AS",
+    "grade": "FL4"
+  },
+  {
+    "code": "BH",
+    "grade": "FL5"
+  },
+  {
+    "code": "FAB-CUY",
+    "grade": "FAB1"
+  },
+  {
+    "code": "FAB-COE",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FABLIO",
+    "grade": "FAB3"
+  },
+  {
+    "code": "VT",
+    "grade": "FL4"
+  },
+  {
+    "code": "AV",
+    "grade": "FL5"
+  },
+  {
+    "code": "FAB-TAG",
+    "grade": "FAB1"
+  },
+  {
+    "code": "FAB-CLD",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-BLN",
+    "grade": "FAB3"
+  },
+  {
+    "code": "BL",
+    "grade": "FL4"
+  },
+  {
+    "code": "TY",
+    "grade": "FL5"
+  },
+  {
+    "code": "FAB-SEI",
+    "grade": "FAB1"
+  },
+  {
+    "code": "FAB-MIL",
+    "grade": "FAB2"
+  },
+  {
+    "code": "SFA-PEY",
+    "grade": "FAB3"
+  },
+  {
+    "code": "RY",
+    "grade": "FL4"
+  },
+  {
+    "code": "FAB-SRI",
+    "grade": "FAB1"
+  },
+  {
+    "code": "FAB-CAN",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-VIS",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-HAI",
+    "grade": "FAB1"
+  },
+  {
+    "code": "FAB-MGA",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-CCA",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-DAB",
+    "grade": "FAB1"
+  },
+  {
+    "code": "FAB-BLT-S",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-FRD-S",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-BIE-S",
+    "grade": "FAB4"
+  },
+  {
+    "code": "FAB-HNN",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-MOS",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-CRN",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-VAT",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-COA",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-MAT",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-LUR",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-MHA",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-NTS",
+    "grade": "FAB1"
+  },
+  {
+    "code": "FAB-HUS",
+    "grade": "FAB2"
+  },
+  {
+    "code": "EFA-BBO",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-LKV",
+    "grade": "FAB1"
+  },
+  {
+    "code": "FAB-SNT",
+    "grade": "FAB1"
+  },
+  {
+    "code": "BFA-INN-T",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-LEX",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-NES-S",
+    "grade": "FAB4"
+  },
+  {
+    "code": "RFA-LIF",
+    "grade": "FAB5"
+  },
+  {
+    "code": "FAB-MMO",
+    "grade": "FAB6"
+  },
+  {
+    "code": "FAB-LSL",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-NES",
+    "grade": "FAB3"
+  },
+  {
+    "code": "BFA-MAK",
+    "grade": "FAB4"
+  },
+  {
+    "code": "CS",
+    "grade": "FL2"
+  },
+  {
+    "code": "GO",
+    "grade": "FL3"
+  },
+  {
+    "code": "WT",
+    "grade": "FL4"
+  },
+  {
+    "code": "WH",
+    "grade": "FL5"
+  },
+  {
+    "code": "MW",
+    "grade": "FL6"
+  },
+  {
+    "code": "IF",
+    "grade": "FL7"
+  },
+  {
+    "code": "RR",
+    "grade": "FL8"
+  },
+  {
+    "code": "FAB-PNC",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-LSL-S",
+    "grade": "FAB3"
+  },
+  {
+    "code": "VK",
+    "grade": "FL5"
+  },
+  {
+    "code": "PP",
+    "grade": "FL6"
+  },
+  {
+    "code": "SY",
+    "grade": "FL8"
+  },
+  {
+    "code": "FAB-NEO",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-RAS",
+    "grade": "FAB3"
+  },
+  {
+    "code": "VY",
+    "grade": "FL5"
+  },
+  {
+    "code": "FAB-VOG",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-BXT",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-WLL",
+    "grade": "FAB2"
+  },
+  {
+    "code": "RFA-LIV",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-URB",
+    "grade": "FAB2"
+  },
+  {
+    "code": "VA",
+    "grade": "FL5"
+  },
+  {
+    "code": "BFA-BNN",
+    "grade": "FAB1"
+  },
+  {
+    "code": "BFA-AMO",
+    "grade": "FAB2"
+  },
+  {
+    "code": "BFA-INN",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-BRM",
+    "grade": "FAB4"
+  },
+  {
+    "code": "FAB-ADE",
+    "grade": "FAB5"
+  },
+  {
+    "code": "FAB-BLD",
+    "grade": "FAB6"
+  },
+  {
+    "code": "BR",
+    "grade": "FL5"
+  },
+  {
+    "code": "FAB-MEO",
+    "grade": "FAB1"
+  },
+  {
+    "code": "BFA-LIT",
+    "grade": "FAB2"
+  },
+  {
+    "code": "BFA-ORI",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-FSE",
+    "grade": "FAB4"
+  },
+  {
+    "code": "FAB-FLF",
+    "grade": "FAB5"
+  },
+  {
+    "code": "FAB-BYN",
+    "grade": "FAB6"
+  },
+  {
+    "code": "FAB-CHL",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-TLT",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-MAK",
+    "grade": "FAB4"
+  },
+  {
+    "code": "FAB-MVE",
+    "grade": "FAB5"
+  },
+  {
+    "code": "FAB-KET",
+    "grade": "FAB6"
+  },
+  {
+    "code": "FAB-DEC",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-BAT",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-TEN",
+    "grade": "FAB4"
+  },
+  {
+    "code": "FAB-PNO",
+    "grade": "FAB5"
+  },
+  {
+    "code": "FAB-RIA",
+    "grade": "FAB6"
+  },
+  {
+    "code": "FAB-RHD",
+    "grade": "FAB2"
+  },
+  {
+    "code": "RFA-BDR",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-ABE",
+    "grade": "FAB5"
+  },
+  {
+    "code": "FAB-CND",
+    "grade": "FAB6"
+  },
+  {
+    "code": "FAB-RIE",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-WIT",
+    "grade": "FAB3"
+  },
+  {
+    "code": "BFA-MER",
+    "grade": "FAB6"
+  },
+  {
+    "code": "FFA-CCD",
+    "grade": "FAB2"
+  },
+  {
+    "code": "FAB-TRI",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-MMT",
+    "grade": "FAB6"
+  },
+  {
+    "code": "FAB-VIC",
+    "grade": "FAB3"
+  },
+  {
+    "code": "FAB-SEW",
+    "grade": "FAB6"
+  },
+  {
+    "code": "FAB-LOL",
+    "grade": "FAB3"
+  }
+]
